@@ -1,18 +1,45 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Brain Histology Data Collection</h1>
+    <Histlist :users="users" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Histlist from '../components/Histlist.vue'
+import { ref } from 'vue'
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
+  components: { Histlist },
+  mounted(){
+    console.log("konichiwa!")
+  },
+  setup(){
+
+    // const search = ref('')
+    const users = ref(null)
+
+    fetch('https://histdataapi.herokuapp.com/posts')
+    .then(res => res.json())
+    .then(data => {
+        users.value = data
+        console.log(users.value[0].Code)
+    })
+
+    return {users}
+
   }
 }
 </script>
+
+<style>
+  h1{
+  font-size: 35px;
+  color: #fcf6f5ff;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 15px;
+}
+</style>
