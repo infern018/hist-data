@@ -18,7 +18,7 @@ export default {
   setup(){
 
     // const search = ref('')
-    const users = ref({})
+    const users = ref(null)
 
     fetch('https://histdataapi.herokuapp.com/posts')
     .then(res => res.json())
