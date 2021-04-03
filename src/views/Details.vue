@@ -39,7 +39,7 @@ export default {
     props:['id'],
     components:{Footer},
     setup(props){
-        const hist = ref(null)
+        const hist = ref([])
 
         fetch('https://histdataapi.herokuapp.com/posts/'+props.id)
         .then(res => res.json())
