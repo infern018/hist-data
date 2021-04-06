@@ -1,5 +1,8 @@
 # hist-data
 
+## Live link
+[Hist-Data](https://musing-ride-5a8ffc.netlify.app/)
+
 ## Project setup
 ```
 npm install
