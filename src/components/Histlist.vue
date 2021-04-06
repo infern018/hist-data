@@ -32,7 +32,7 @@
             </tr>
         </tbody>
         <tbody v-if="!isPresent">
-          <tr><td>No such record found!</td></tr>
+          <tr><td>The site may take few seconds to load :)</td></tr>
         </tbody>
       <!-- </tbody> -->
     </table>
@@ -132,6 +132,9 @@ export default {
     .router-link{
         text-decoration: underline;
         text-decoration-color: white;
+    }
+    tr{
+      text-align: center !important;
     }
 
     /* demo styles */
