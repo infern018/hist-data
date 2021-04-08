@@ -8,10 +8,10 @@
       <thead>
         <tr>
           <th>Code</th>
-          <th>Age</th>
+          <th>Age <i @click="handleAgeClick" class="fa fa-caret-up"></i></th>
           <th>Sex</th>
-          <th>BodyWeight</th>
-          <th>BrainWeight</th>
+          <th>BodyWeight <i @click="handleBdWClick" class="fa fa-caret-up"></i></th>
+          <th>BrainWeight <i @click="handleBrWClick" class="fa fa-caret-up"></i></th>
         </tr>
       </thead>
     </table>
@@ -48,6 +48,109 @@ import { ref, computed } from 'vue'
 export default {
     props:['users'],
     components: { SingleHist, Footer },
+    methods: {
+      handleBdWClick(e){
+        e.preventDefault();
+        this.users.sort((a, b) => {
+          if(a.BodyWeight == '---' & b.BodyWeight != '---'){
+            return 1;
+          }
+          else if(a.BodyWeight != '--' & b.BodyWeight == '---'){
+            return -1;
+          }
+          else{
+            return a.BodyWeight - b.BodyWeight
+          }
+        });
+      },
+      handleBrWClick(e){
+        e.preventDefault();
+        this.users.sort((a, b) => {
+
+          if(a.BrainWeight.includes(' g')){
+            a.BrainWeight = a.BrainWeight.toString().split(" ")[0];
+          }
+
+          if(a.BrainWeight == '---' & b.BrainWeight != '---'){
+            return 1;
+          }
+          else if(a.BrainWeight != '--' & b.BrainWeight == '---'){
+            return -1;
+          }
+          else{
+            return a.BrainWeight - b.BrainWeight
+          }
+        });
+      },
+      handleAgeClick(e){
+        e.preventDefault();
+        this.users.sort((a, b) => {
+
+          var a_age=0,b_age=0
+
+          if(a.Age.includes('day')){
+            a_age = Number(a.Age.toString().split(" ")[0]);
+          }
+
+          if(a.Age.includes('week')){
+            a_age = Number(a.Age.toString().split(" ")[0]);
+            a_age = a_age*7
+          }
+
+          if(a.Age.includes('month')){
+            a_age = Number(a.Age.toString().split(" ")[0]);
+            a_age = a_age*30
+          }
+
+          if(a.Age.includes('ear')){
+            a_age = Number(a.Age.toString().split(" ")[0]);
+            a_age = a_age*365
+          }
+
+          if(a.Age.includes('neonat')){
+            a_age = 0
+          }
+
+          if(a.Age.includes('fetus')){
+            a_age = -1
+          }
+
+          console.log(a_age)
+
+          ////// for b
+
+          if(b.Age.includes('day')){
+            b_age = Number(b.Age.toString().split(" ")[0]);
+          }
+
+          if(b.Age.includes('week')){
+            b_age = Number(b.Age.toString().split(" ")[0]);
+            b_age = b_age*7
+          }
+
+          if(b.Age.includes('month')){
+            b_age = Number(b.Age.toString().split(" ")[0]);
+            b_age = b_age*30
+          }
+
+          if(b.Age.includes('year')){
+            b_age = Number(b.Age.toString().split(" ")[0]);
+            b_age = b_age*365
+          }
+
+          if(b.Age.includes('neonat')){
+            b_age = 0
+          }
+
+          if(b.Age.includes('fetus')){
+            b_age = -1
+          }
+
+
+          return a_age - b_age
+        });
+      }
+    },
     setup(props){
 
         const search = ref('')
@@ -162,6 +265,14 @@ export default {
     } 
     ::-webkit-scrollbar-thumb {
         -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    }
+
+    .fa-caret-up{
+      color:rgb(206, 250, 185);
+    }
+
+    i:hover{
+      cursor: pointer;
     }
 
     
