@@ -174,6 +174,7 @@ export default {
         return {matchingCodes, search, temp_users, isPresent}
     }
 }
+
 </script>
 
 <style>
@@ -220,9 +221,9 @@ export default {
     font-size: 20px;
     /* color: rgb(20, 84, 145); */
     color: rgb(206, 250, 185);
-
     text-transform: uppercase;
     }
+
     td{
     padding: 15px;
     text-align: center;
@@ -274,6 +275,19 @@ export default {
     i:hover{
       cursor: pointer;
     }
+
+@media only screen and (max-width: 480px) {
+  th{
+    font-size: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 10px;
+  }
+
+  td{
+    font-size: 10px;
+  }
+}
 
     
 

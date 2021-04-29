@@ -125,5 +125,13 @@ body {
 	width: 100%;
 }
 
+@media only screen and (max-width: 480px) {
+	.course{
+		transform: scale(0.8);
+		position: relative;
+		left: 100px;
+	}
+}
+
 
 </style>

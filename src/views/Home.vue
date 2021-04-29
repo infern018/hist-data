@@ -42,4 +42,11 @@ export default {
   text-align: center;
   margin-bottom: 15px;
 }
+
+  @media only screen and (max-width: 480px) {
+    h1{
+      font-size: 25px;
+    }
+  }
+
 </style>
