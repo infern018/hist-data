@@ -220,7 +220,7 @@ export default {
     font-weight: 600;
     font-size: 20px;
     /* color: rgb(20, 84, 145); */
-    color: rgb(206, 250, 185);
+    color: rgb(255, 255, 255);
     text-transform: uppercase;
     }
 
@@ -248,7 +248,8 @@ export default {
     /* background: -webkit-linear-gradient(left, #25c481, #25b7c4);
     background: linear-gradient(to right, #25c481, #25b7c4);
      */
-     background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);
+     /* background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); */
+    background: #222;
     font-family: 'Roboto', sans-serif;
     }
     section{
@@ -269,7 +270,7 @@ export default {
     }
 
     .fa-caret-up{
-      color:rgb(206, 250, 185);
+      color:rgb(255, 255, 255);
     }
 
     i:hover{
